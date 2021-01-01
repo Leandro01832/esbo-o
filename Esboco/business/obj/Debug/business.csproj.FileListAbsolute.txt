@@ -1,0 +1,14 @@
+F:\repos\Igreja\igreja-master\Esboco\business\obj\Debug\business.csprojAssemblyReference.cache
+F:\repos\Igreja\igreja-master\Esboco\business\obj\Debug\business.csproj.CoreCompileInputs.cache
+F:\repos\Igreja\igreja-master\Esboco\business\bin\Debug\business.dll.config
+F:\repos\Igreja\igreja-master\Esboco\business\bin\Debug\business.dll
+F:\repos\Igreja\igreja-master\Esboco\business\bin\Debug\business.pdb
+F:\repos\Igreja\igreja-master\Esboco\business\bin\Debug\EntityFramework.dll
+F:\repos\Igreja\igreja-master\Esboco\business\bin\Debug\EntityFramework.SqlServer.dll
+F:\repos\Igreja\igreja-master\Esboco\business\bin\Debug\EntityFramework.xml
+F:\repos\Igreja\igreja-master\Esboco\business\bin\Debug\EntityFramework.SqlServer.xml
+F:\repos\Igreja\igreja-master\Esboco\business\obj\Debug\business.csproj.CopyComplete
+F:\repos\Igreja\igreja-master\Esboco\business\obj\Debug\business.dll
+F:\repos\Igreja\igreja-master\Esboco\business\obj\Debug\business.pdb
+F:\repos\Igreja\igreja-master\Esboco\business\obj\Debug\business.Migrations.InitialCreate.resources
+F:\repos\Igreja\igreja-master\Esboco\business\obj\Debug\business.csproj.GenerateResource.cache

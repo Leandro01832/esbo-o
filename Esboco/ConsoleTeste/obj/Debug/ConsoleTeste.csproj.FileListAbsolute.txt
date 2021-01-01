@@ -1,0 +1,15 @@
+F:\repos\Igreja\igreja-master\Esboco\ConsoleTeste\bin\Debug\ConsoleTeste.exe.config
+F:\repos\Igreja\igreja-master\Esboco\ConsoleTeste\bin\Debug\ConsoleTeste.exe
+F:\repos\Igreja\igreja-master\Esboco\ConsoleTeste\bin\Debug\ConsoleTeste.pdb
+F:\repos\Igreja\igreja-master\Esboco\ConsoleTeste\bin\Debug\business.dll
+F:\repos\Igreja\igreja-master\Esboco\ConsoleTeste\bin\Debug\EntityFramework.dll
+F:\repos\Igreja\igreja-master\Esboco\ConsoleTeste\bin\Debug\EntityFramework.SqlServer.dll
+F:\repos\Igreja\igreja-master\Esboco\ConsoleTeste\bin\Debug\business.pdb
+F:\repos\Igreja\igreja-master\Esboco\ConsoleTeste\bin\Debug\business.dll.config
+F:\repos\Igreja\igreja-master\Esboco\ConsoleTeste\bin\Debug\EntityFramework.xml
+F:\repos\Igreja\igreja-master\Esboco\ConsoleTeste\bin\Debug\EntityFramework.SqlServer.xml
+F:\repos\Igreja\igreja-master\Esboco\ConsoleTeste\obj\Debug\ConsoleTeste.csprojAssemblyReference.cache
+F:\repos\Igreja\igreja-master\Esboco\ConsoleTeste\obj\Debug\ConsoleTeste.csproj.CoreCompileInputs.cache
+F:\repos\Igreja\igreja-master\Esboco\ConsoleTeste\obj\Debug\ConsoleTeste.csproj.CopyComplete
+F:\repos\Igreja\igreja-master\Esboco\ConsoleTeste\obj\Debug\ConsoleTeste.exe
+F:\repos\Igreja\igreja-master\Esboco\ConsoleTeste\obj\Debug\ConsoleTeste.pdb
