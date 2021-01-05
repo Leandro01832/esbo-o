@@ -3,33 +3,33 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using business.classes.Abstrato;
 using business.database;
 
-namespace business.classes
+namespace business.classes.Fontes
 {
-    public class Versiculo : modelocrud
+    public class Versiculo : Fonte
     {
         public Versiculo() : base()
         {
 
         }
-
+        public string Livro { get; set; }
         public string Texto { get; set; }
         public int Capitulo { get; set; }
-        public int FonteId { get; set; }
-        [ForeignKey("FonteId")]
-        public virtual Fonte Fonte { get; set; }
 
         public override string alterar(int id)
         {
-            Update_padrao = $"update {this.GetType().Name} where Id='{id}' ";
+            Update_padrao = base.alterar(id);
+            Update_padrao += $"update {this.GetType().Name} set Livro={Livro}, Texto={Texto}, " +
+            $" Capitulo={Capitulo} where Id='{id}' ";
             bd.Editar(this);
             return Update_padrao;
         }
 
         public override string excluir(int id)
         {
-            Delete_padrao = $"delete from {this.GetType().Name} where Id='{id}' ";
+            Delete_padrao = $"delete from {this.GetType().Name} where Id='{id}' " + base.excluir(id);
             bd.Excluir(this);
             return Delete_padrao;
         }
@@ -58,7 +58,6 @@ namespace business.classes
                     reader.Read();
                     this.Id = int.Parse(reader["Id"].ToString());
                     this.Capitulo = int.Parse(reader["Capitulo"].ToString());
-                    this.FonteId = int.Parse(reader["FonteId"].ToString());
                     this.Texto = reader["Texto"].ToString();
                     reader.Close();
                     modelos.Add(this);
@@ -77,9 +76,9 @@ namespace business.classes
                     {
                         Versiculo v = new Versiculo();
                         v.Id = int.Parse(reader["Id"].ToString());
-                        v.Capitulo = int.Parse(reader["Id"].ToString());
-                        v.FonteId = int.Parse(reader["FonteId"].ToString());
+                        v.Capitulo = int.Parse(reader["Capitulo"].ToString());
                         v.Texto = reader["Texto"].ToString();
+                        v.Livro = reader["Livro"].ToString();
                         modelos.Add(v);
                     }
                     reader.Close();
@@ -95,8 +94,8 @@ namespace business.classes
 
         public override string salvar()
         {
-            Insert_padrao = $"insert into {this.GetType().Name} (Capitulo, FonteId, Texto) " +
-                $" values ('{Capitulo}', '{FonteId}', '{Texto}')";
+            Insert_padrao = $"insert into {this.GetType().Name} (Capitulo, Texto) " +
+            $" values ('{Capitulo}', '{Texto}')";
             bd.SalvarModelo(this);
             return Insert_padrao;
         }

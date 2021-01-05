@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WFEsboco.Formulario.Mensagem;
 using WFEsboco.Formulario.PastaFonte;
-using WFEsboco.Formulario.PastaVersiculo;
 
 namespace WFEsboco
 {
@@ -118,21 +110,10 @@ namespace WFEsboco
 
         private void fonteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCadastrarFonte frm = new FrmCadastrarFonte(new business.classes.Fonte(),
-            false, false, false);
-            frm.MdiParent = this;
-            frm.Text = "Janela " + childFormNumber++;
-            frm.Show();
+            
         }
 
-        private void versiculoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmCadastrarVersiculo frm = new FrmCadastrarVersiculo(new business.classes.Versiculo(),
-            false, false, false);
-            frm.MdiParent = this;
-            frm.Text = "Janela " + childFormNumber++;
-            frm.Show();
-        }
+        
 
         private void mensagemToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -153,6 +134,15 @@ namespace WFEsboco
         private void versiculoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FrmVersiculo frm = new FrmVersiculo();
+            frm.MdiParent = this;
+            frm.Text = "Janela " + childFormNumber++;
+            frm.Show();
+        }
+
+        private void versiculoToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmCadastrarVersiculo frm = new FrmCadastrarVersiculo(new business.classes.Fontes.Versiculo(),
+            false, false, false);
             frm.MdiParent = this;
             frm.Text = "Janela " + childFormNumber++;
             frm.Show();

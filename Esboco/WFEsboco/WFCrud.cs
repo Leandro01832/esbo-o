@@ -1,4 +1,5 @@
 ﻿
+using business.classes.Fontes;
 using business.database;
 using System;
 using System.Drawing;
@@ -6,7 +7,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WFEsboco.Formulario.Mensagem;
 using WFEsboco.Formulario.PastaFonte;
-using WFEsboco.Formulario.PastaVersiculo;
 
 namespace WFEsboco
 {
@@ -148,14 +148,14 @@ namespace WFEsboco
                 BtnDadoMensagem.Visible = true;
             }
 
-            if (modelo is business.classes.Fonte &&
+            if (modelo is business.classes.Abstrato.Fonte &&
             this.GetType().Name == "FrmFinalizarCadastroFonte")
             {
                 BtnVersiculos.Visible = true;
                 BtnDadoFonte.Visible = true;
             }
 
-            if (modelo is business.classes.Versiculo &&
+            if (modelo is business.classes.Fontes.Versiculo &&
             this.GetType().Name == "FrmFinalizarCadastroVersiculo")
             {
                 BtnDadoVersiculo.Visible = true;
@@ -178,15 +178,15 @@ namespace WFEsboco
                     
                 }
 
-                if (modelo is business.classes.Fonte)
+                if (modelo is business.classes.Abstrato.Fonte)
                 {
-                    var m = (business.classes.Fonte)modelo;
-                    InfoForm.Text += m.Livro;
+                    var m = (business.classes.Abstrato.Fonte)modelo;
+                  //  InfoForm.Text += m.Livro;
                 }
 
-                if (modelo is business.classes.Versiculo)
+                if (modelo is business.classes.Fontes.Versiculo)
                 {
-                    var m = (business.classes.Versiculo)modelo;
+                    var m = (business.classes.Fontes.Versiculo)modelo;
                     InfoForm.Text += "Capitulo: " + m.Capitulo;
                 }
 
@@ -224,10 +224,7 @@ namespace WFEsboco
 
         private void BtnDadoFonte_Click(object sender, EventArgs e)
         {
-            FrmCadastrarFonte frm =
-            new FrmCadastrarFonte(modelo, CondicaoDeletar, CondicaoAtualizar, CondicaoDetalhes);
-            frm.MdiParent = this.MdiParent;
-            frm.Show();
+         
         }
 
         private void BtnVersiculos_Click(object sender, EventArgs e)
@@ -290,25 +287,32 @@ namespace WFEsboco
 
             if(this is FrmCrudFonte)
             {
-                if(this is FrmCadastrarFonte)
+                if(this is FrmDadoFonte)
                 {
-                    FrmFinalizarCadastroFonte frm =
-                    new FrmFinalizarCadastroFonte(modelo, CondicaoDeletar, CondicaoAtualizar, CondicaoDetalhes);
-                    frm.MdiParent = this.MdiParent;
-                    this.Close();
-                    frm.Show();
-                }
-            }
+                    if(modelo is Versiculo)
+                    {
+                        FrmCadastrarVersiculo frm =
+                        new FrmCadastrarVersiculo(modelo, CondicaoDeletar, CondicaoAtualizar, CondicaoDetalhes);
+                        frm.MdiParent = this.MdiParent;
+                        this.Close();
+                        frm.Show();
+                    }
 
-            if(this is FrmCrudVersiculo)
-            {
-                if (this is FrmCadastrarVersiculo)
-                {
-                    FrmFinalizarCadastroVersiculo frm =
-                    new FrmFinalizarCadastroVersiculo(modelo, CondicaoDeletar, CondicaoAtualizar, CondicaoDetalhes);
-                    frm.MdiParent = this.MdiParent;
-                    this.Close();
-                    frm.Show();
+                    if (modelo is CanalTv)
+                    {
+                        FrmCadastrarCanalTv frm =
+                        new FrmCadastrarCanalTv(modelo, CondicaoDeletar, CondicaoAtualizar, CondicaoDetalhes);
+                        frm.MdiParent = this.MdiParent;
+                        this.Close();
+                        frm.Show();
+                    }
+
+                    if(this is FrmCadastrarVersiculo || this is FrmCadastrarCanalTv)
+                    {
+                        FrmFinalizarCadastroFonte frm = 
+                        new FrmFinalizarCadastroFonte(modelo, CondicaoDeletar, CondicaoAtualizar, CondicaoDetalhes);
+                    }
+
                 }
             }
             

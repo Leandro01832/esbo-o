@@ -63,7 +63,7 @@ namespace WFEsboco.DdataGridViews
                 return lista;
             }
 
-            if ( modelo is business.classes.Fonte)
+            if ( modelo is business.classes.Abstrato.Fonte)
             {
                 List<modelocrud> lista = new List<modelocrud>();
                 foreach (var item in dtable.Select(""))
@@ -72,7 +72,7 @@ namespace WFEsboco.DdataGridViews
                 return lista;
             }
 
-            if (modelo is business.classes.Versiculo)
+            if (modelo is business.classes.Fontes.Versiculo)
             {
                 List<modelocrud> lista = new List<modelocrud>();
                 foreach (var item in dtable.Select(""))
@@ -81,7 +81,7 @@ namespace WFEsboco.DdataGridViews
                 return lista;
             }
 
-            if (modelo is business.classes.Versiculo)
+            if (modelo is business.classes.Fontes.Versiculo)
             {
                 List<modelocrud> lista = new List<modelocrud>();
                 foreach (var item in dtable.Select(""))

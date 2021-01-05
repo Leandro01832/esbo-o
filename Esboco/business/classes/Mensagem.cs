@@ -1,4 +1,5 @@
-﻿using business.database;
+﻿using business.classes.Abstrato;
+using business.database;
 using business.Interface;
 using System;
 using System.Collections.Generic;
@@ -128,12 +129,13 @@ namespace business.classes
                 return modelos;
             }
 
+
             try
             {
+                var lista = business.classes.Abstrato.Fonte.recuperarTodasFontes();
                 while (reader.Read())
                 {
-                    Fonte f = (Fonte) new Fonte(int.Parse(reader["Id"].ToString()), false)
-                    .recuperar(int.Parse(reader["Id"].ToString()))[0];
+                    var f = lista.First(i => i.Id == int.Parse(reader["Id"].ToString()));
                     modelos.Add(f);
                 }
                 reader.Close();

@@ -13,6 +13,11 @@ namespace WFEsboco
 {
     public partial class FrmCrudVersiculo : WFCrud
     {
+
+        public FrmCrudVersiculo()
+        {
+                
+        }
         public FrmCrudVersiculo(modelocrud modelo, bool deletar, bool atualizar, bool detalhes)
             : base(modelo, deletar, atualizar, detalhes)
         {

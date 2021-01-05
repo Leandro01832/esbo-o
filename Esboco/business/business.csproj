@@ -52,9 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="classes\Fonte.cs" />
+    <Compile Include="classes\Abstrato\Fonte.cs" />
+    <Compile Include="classes\Fontes\CanalTv.cs" />
     <Compile Include="classes\Mensagem.cs" />
-    <Compile Include="classes\Versiculo.cs" />
+    <Compile Include="classes\Fontes\Versiculo.cs" />
     <Compile Include="database\BDcomum.cs" />
     <Compile Include="database\ContextEsboco.cs" />
     <Compile Include="database\modelocrud.cs" />
@@ -67,10 +68,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="classes\Abstrato\" />
-    <Folder Include="classes\Concreto\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

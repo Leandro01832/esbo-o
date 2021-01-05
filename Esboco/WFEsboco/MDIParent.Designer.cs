@@ -40,7 +40,6 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mensagemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fonteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.versiculoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,6 +87,7 @@
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.versiculoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -146,21 +146,21 @@
             // mensagemToolStripMenuItem1
             // 
             this.mensagemToolStripMenuItem1.Name = "mensagemToolStripMenuItem1";
-            this.mensagemToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+            this.mensagemToolStripMenuItem1.Size = new System.Drawing.Size(157, 26);
             this.mensagemToolStripMenuItem1.Text = "Mensagem";
             this.mensagemToolStripMenuItem1.Click += new System.EventHandler(this.mensagemToolStripMenuItem1_Click);
             // 
             // fonteToolStripMenuItem1
             // 
             this.fonteToolStripMenuItem1.Name = "fonteToolStripMenuItem1";
-            this.fonteToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+            this.fonteToolStripMenuItem1.Size = new System.Drawing.Size(157, 26);
             this.fonteToolStripMenuItem1.Text = "Fonte";
             this.fonteToolStripMenuItem1.Click += new System.EventHandler(this.fonteToolStripMenuItem1_Click);
             // 
             // versiculoToolStripMenuItem1
             // 
             this.versiculoToolStripMenuItem1.Name = "versiculoToolStripMenuItem1";
-            this.versiculoToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+            this.versiculoToolStripMenuItem1.Size = new System.Drawing.Size(157, 26);
             this.versiculoToolStripMenuItem1.Text = "Versiculo";
             this.versiculoToolStripMenuItem1.Click += new System.EventHandler(this.versiculoToolStripMenuItem1_Click);
             // 
@@ -173,8 +173,7 @@
             // 
             this.saveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mensagemToolStripMenuItem,
-            this.fonteToolStripMenuItem,
-            this.versiculoToolStripMenuItem});
+            this.fonteToolStripMenuItem});
             this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
@@ -185,23 +184,18 @@
             // mensagemToolStripMenuItem
             // 
             this.mensagemToolStripMenuItem.Name = "mensagemToolStripMenuItem";
-            this.mensagemToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.mensagemToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.mensagemToolStripMenuItem.Text = "Mensagem";
             this.mensagemToolStripMenuItem.Click += new System.EventHandler(this.mensagemToolStripMenuItem_Click);
             // 
             // fonteToolStripMenuItem
             // 
+            this.fonteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.versiculoToolStripMenuItem});
             this.fonteToolStripMenuItem.Name = "fonteToolStripMenuItem";
-            this.fonteToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.fonteToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.fonteToolStripMenuItem.Text = "Fonte";
             this.fonteToolStripMenuItem.Click += new System.EventHandler(this.fonteToolStripMenuItem_Click);
-            // 
-            // versiculoToolStripMenuItem
-            // 
-            this.versiculoToolStripMenuItem.Name = "versiculoToolStripMenuItem";
-            this.versiculoToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
-            this.versiculoToolStripMenuItem.Text = "Versiculo";
-            this.versiculoToolStripMenuItem.Click += new System.EventHandler(this.versiculoToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -586,6 +580,13 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Esboçamento";
             // 
+            // versiculoToolStripMenuItem
+            // 
+            this.versiculoToolStripMenuItem.Name = "versiculoToolStripMenuItem";
+            this.versiculoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.versiculoToolStripMenuItem.Text = "Versiculo";
+            this.versiculoToolStripMenuItem.Click += new System.EventHandler(this.versiculoToolStripMenuItem_Click_1);
+            // 
             // MDIParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -670,8 +671,8 @@
         private System.Windows.Forms.ToolStripMenuItem versiculoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mensagemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fonteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem versiculoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pesquisarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem versiculoToolStripMenuItem;
     }
 }
 

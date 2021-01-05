@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -78,11 +81,17 @@
     <Compile Include="Formulario\Mensagem\FrmMensagem.Designer.cs">
       <DependentUpon>FrmMensagem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formulario\PastaFonte\FrmCadastrarFonte.cs">
+    <Compile Include="Formulario\PastaFonte\FrmCadastrarCanalTv.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formulario\PastaFonte\FrmCadastrarFonte.Designer.cs">
-      <DependentUpon>FrmCadastrarFonte.cs</DependentUpon>
+    <Compile Include="Formulario\PastaFonte\FrmCadastrarCanalTv.Designer.cs">
+      <DependentUpon>FrmCadastrarCanalTv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\PastaFonte\FrmDadoFonte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\PastaFonte\FrmDadoFonte.Designer.cs">
+      <DependentUpon>FrmDadoFonte.cs</DependentUpon>
     </Compile>
     <Compile Include="Formulario\PastaFonte\FrmFinalizarCadastroFonte.cs">
       <SubType>Form</SubType>
@@ -96,28 +105,16 @@
     <Compile Include="Formulario\PastaFonte\FrmFonte.Designer.cs">
       <DependentUpon>FrmFonte.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formulario\PastaFonte\FrmVersiculos.cs">
+    <Compile Include="Formulario\PastaFonte\FrmCadastrarVersiculo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formulario\PastaFonte\FrmVersiculos.Designer.cs">
-      <DependentUpon>FrmVersiculos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formulario\PastaVersiculo\FrmCadastrarVersiculo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formulario\PastaVersiculo\FrmCadastrarVersiculo.Designer.cs">
+    <Compile Include="Formulario\PastaFonte\FrmCadastrarVersiculo.Designer.cs">
       <DependentUpon>FrmCadastrarVersiculo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formulario\PastaVersiculo\FrmFinalizarCadastroVersiculo.cs">
+    <Compile Include="Formulario\PastaFonte\FrmVersiculo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formulario\PastaVersiculo\FrmFinalizarCadastroVersiculo.Designer.cs">
-      <DependentUpon>FrmFinalizarCadastroVersiculo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formulario\PastaVersiculo\FrmVersiculo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formulario\PastaVersiculo\FrmVersiculo.Designer.cs">
+    <Compile Include="Formulario\PastaFonte\FrmVersiculo.Designer.cs">
       <DependentUpon>FrmVersiculo.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCrudFonte.cs">
@@ -189,8 +186,11 @@
     <EmbeddedResource Include="Formulario\Mensagem\FrmMensagem.resx">
       <DependentUpon>FrmMensagem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formulario\PastaFonte\FrmCadastrarFonte.resx">
-      <DependentUpon>FrmCadastrarFonte.cs</DependentUpon>
+    <EmbeddedResource Include="Formulario\PastaFonte\FrmCadastrarCanalTv.resx">
+      <DependentUpon>FrmCadastrarCanalTv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\PastaFonte\FrmDadoFonte.resx">
+      <DependentUpon>FrmDadoFonte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\PastaFonte\FrmFinalizarCadastroFonte.resx">
       <DependentUpon>FrmFinalizarCadastroFonte.cs</DependentUpon>
@@ -198,16 +198,10 @@
     <EmbeddedResource Include="Formulario\PastaFonte\FrmFonte.resx">
       <DependentUpon>FrmFonte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formulario\PastaFonte\FrmVersiculos.resx">
-      <DependentUpon>FrmVersiculos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formulario\PastaVersiculo\FrmCadastrarVersiculo.resx">
+    <EmbeddedResource Include="Formulario\PastaFonte\FrmCadastrarVersiculo.resx">
       <DependentUpon>FrmCadastrarVersiculo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formulario\PastaVersiculo\FrmFinalizarCadastroVersiculo.resx">
-      <DependentUpon>FrmFinalizarCadastroVersiculo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formulario\PastaVersiculo\FrmVersiculo.resx">
+    <EmbeddedResource Include="Formulario\PastaFonte\FrmVersiculo.resx">
       <DependentUpon>FrmVersiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCrudFonte.resx">
@@ -237,6 +231,7 @@
     <EmbeddedResource Include="WFCrud.resx">
       <DependentUpon>WFCrud.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

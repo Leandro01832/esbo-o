@@ -13,7 +13,7 @@ namespace WFEsboco.Formulario.PastaFonte
 {
     public partial class FrmFonte : FormularioListView
     {
-        public FrmFonte() : base(new ListViewFonte(new business.classes.Fonte(),""))
+        public FrmFonte() : base(new ListViewFonte(null,"Fonte"))
         {
             InitializeComponent();
         }

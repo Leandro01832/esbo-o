@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WFEsboco.Formulario.Mensagem;
 using WFEsboco.Formulario.PastaFonte;
-using WFEsboco.Formulario.PastaVersiculo;
 using WFEsboco.ListViews;
 
 namespace WFEsboco.Formulario
@@ -22,6 +21,8 @@ namespace WFEsboco.Formulario
         {
 
         }
+
+        List<modelocrud> lista;
 
         public FormularioListView(TodosListViews ListView)
         {
@@ -84,7 +85,10 @@ namespace WFEsboco.Formulario
 
             if (ListView is ListViewFonte)
             {
-                Modelo = new business.classes.Fonte(ListView.numero, true).recuperar(ListView.numero)[0];
+                List<business.classes.Abstrato.Fonte> lista2 = new List<business.classes.Abstrato.Fonte>();
+                foreach (var item in lista)
+                 lista2.Add((business.classes.Abstrato.Fonte)item);
+                Modelo = lista2.First(i => i.Id == ListView.numero);
 
                 FrmFinalizarCadastroFonte frm = new FrmFinalizarCadastroFonte(Modelo, false, false, true);
                 frm.MdiParent = this.MdiParent;
@@ -93,8 +97,8 @@ namespace WFEsboco.Formulario
 
             if (ListView is ListViewVersiculo)
             {
-                Modelo = new business.classes.Versiculo().recuperar(ListView.numero)[0];
-                FrmFinalizarCadastroVersiculo frm = new FrmFinalizarCadastroVersiculo(Modelo, false, false, true);
+                Modelo = new business.classes.Fontes.Versiculo().recuperar(ListView.numero)[0];
+                FrmFinalizarCadastroFonte frm = new FrmFinalizarCadastroFonte(Modelo, false, false, true);
                 frm.MdiParent = this.MdiParent;
                 frm.Show();
             }
@@ -118,7 +122,10 @@ namespace WFEsboco.Formulario
 
             if (ListView is ListViewFonte)
             {
-                Modelo = new business.classes.Fonte(ListView.numero, true).recuperar(ListView.numero)[0];
+                List<business.classes.Abstrato.Fonte> lista2 = new List<business.classes.Abstrato.Fonte>();
+                foreach (var item in lista)
+                    lista2.Add((business.classes.Abstrato.Fonte)item);
+                Modelo = lista2.First(i => i.Id == ListView.numero);
 
                 FrmFinalizarCadastroFonte frm = new FrmFinalizarCadastroFonte(Modelo, false, true, false);
                 frm.MdiParent = this.MdiParent;
@@ -127,9 +134,9 @@ namespace WFEsboco.Formulario
 
             if (ListView is ListViewVersiculo)
             {
-                Modelo = new business.classes.Versiculo().recuperar(ListView.numero)[0];
+                Modelo = new business.classes.Fontes.Versiculo().recuperar(ListView.numero)[0];
 
-                FrmFinalizarCadastroVersiculo frm = new FrmFinalizarCadastroVersiculo(Modelo, false, true, false);
+                FrmFinalizarCadastroFonte frm = new FrmFinalizarCadastroFonte(Modelo, false, true, false);
                 frm.MdiParent = this.MdiParent;
                 frm.Show();
             }
@@ -153,16 +160,11 @@ namespace WFEsboco.Formulario
 
             if (ListView is ListViewFonte)
             {
-                Modelo = new business.classes.Fonte(ListView.numero, true).recuperar(ListView.numero)[0];
+                List<business.classes.Abstrato.Fonte> lista2 = new List<business.classes.Abstrato.Fonte>();
+                foreach (var item in lista)
+                lista2.Add((business.classes.Abstrato.Fonte)item);
+                Modelo = lista2.First(i => i.Id == ListView.numero);
                 FrmFinalizarCadastroFonte frm = new FrmFinalizarCadastroFonte(Modelo, true, false, false);
-                frm.MdiParent = this.MdiParent;
-                frm.Show();
-            }
-
-            if (ListView is ListViewVersiculo)
-            {
-                Modelo = new business.classes.Fonte(ListView.numero, true).recuperar(ListView.numero)[0];
-                FrmFinalizarCadastroVersiculo frm = new FrmFinalizarCadastroVersiculo(Modelo, true, false, false);
                 frm.MdiParent = this.MdiParent;
                 frm.Show();
             }
@@ -171,7 +173,7 @@ namespace WFEsboco.Formulario
         
         private async void FormularioListView_Load(object sender, EventArgs e)
         {
-            List<modelocrud> lista = new List<modelocrud>();
+             lista = new List<modelocrud>();
             if (Modelo != null)
             lista = await Task.Run(() => Modelo.recuperar(null));
 
@@ -188,20 +190,11 @@ namespace WFEsboco.Formulario
                        
                     }
                     else
-                    if (v is business.classes.Fonte)
+                    if (v is business.classes.Abstrato.Fonte)
                     {
-                        business.classes.Fonte m;
-                        m = (business.classes.Fonte)v;
-                        ListView.Items.Add(m.Id.ToString() + " - " + m.Livro );
-                        
-                    }
-
-                    else
-                    if (v is business.classes.Versiculo)
-                    {
-                        business.classes.Versiculo c;
-                        c = (business.classes.Versiculo)v;
-                        ListView.Items.Add(c.Capitulo.ToString() + " - Fonte: " + c.FonteId  );
+                        business.classes.Abstrato.Fonte m;
+                        m = (business.classes.Abstrato.Fonte)v;
+                        ListView.Items.Add(m.Id.ToString() + " - ");
                         
                     }
                 }

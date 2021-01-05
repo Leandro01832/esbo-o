@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WFEsboco.ListViews;
 
-namespace WFEsboco.Formulario.PastaVersiculo
+namespace WFEsboco.Formulario.PastaFonte
 {
     public partial class FrmVersiculo : FormularioListView
     {
-        public FrmVersiculo() : base(new ListViewVersiculo(new business.classes.Versiculo(), ""))
+        public FrmVersiculo() : base(new ListViewVersiculo(new business.classes.Fontes.Versiculo(), ""))
         {
             InitializeComponent();
         }
