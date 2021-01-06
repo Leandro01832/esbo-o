@@ -13,7 +13,6 @@ using System.Windows.Forms;
 namespace WFEsboco.Formulario.PastaFonte
 {
     public partial class FrmCadastrarCanalTv : FrmCrudFonte
-         
     {
         public FrmCadastrarCanalTv(modelocrud modelo, bool deletar, bool atualizar, bool detalhes)
             : base(modelo, deletar, atualizar, detalhes)
@@ -23,7 +22,13 @@ namespace WFEsboco.Formulario.PastaFonte
 
         private void FrmCadastrarCanalTv_Load(object sender, EventArgs e)
         {
-
+            if(modelo != null)
+            {
+                var fonte = (CanalTv)modelo;
+                txt_nome_canal.Text = fonte.NomeCanal;
+                txt_nome_programa.Text = fonte.NomePrograma;
+                mask_horario.Text = fonte.Horario.ToString();
+            }
         }
 
         private void txt_nome_canal_TextChanged(object sender, EventArgs e)

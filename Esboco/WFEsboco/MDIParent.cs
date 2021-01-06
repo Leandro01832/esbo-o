@@ -1,4 +1,5 @@
-﻿using System;
+﻿using business.classes.Fontes;
+using System;
 using System.Windows.Forms;
 using WFEsboco.Formulario.Mensagem;
 using WFEsboco.Formulario.PastaFonte;
@@ -141,8 +142,49 @@ namespace WFEsboco
 
         private void versiculoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            FrmCadastrarVersiculo frm = new FrmCadastrarVersiculo(new business.classes.Fontes.Versiculo(),
+            FrmDadoFonte frm = new FrmDadoFonte(new business.classes.Fontes.Versiculo(),
             false, false, false);
+            frm.MdiParent = this;
+            frm.Text = "Janela " + childFormNumber++;
+            frm.Show();
+        }
+
+        private void versiculoToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            FrmCanalTv frm = new FrmCanalTv();
+            frm.MdiParent = this;
+            frm.Text = "Janela " + childFormNumber++;
+            frm.Show();
+
+        }
+
+        private void canalDeTvToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmVersiculo frm = new FrmVersiculo();
+            frm.MdiParent = this;
+            frm.Text = "Janela " + childFormNumber++;
+            frm.Show();
+        }
+
+        private void canalDeTvToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmDadoFonte frm = new FrmDadoFonte(new CanalTv(), false, false, false);
+            frm.MdiParent = this;
+            frm.Text = "Janela " + childFormNumber++;
+            frm.Show();
+        }
+
+        private void livroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDadoFonte frm = new FrmDadoFonte(new Livro(), false, false, false);
+            frm.MdiParent = this;
+            frm.Text = "Janela " + childFormNumber++;
+            frm.Show();
+        }
+
+        private void livroToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmLivro frm = new FrmLivro();
             frm.MdiParent = this;
             frm.Text = "Janela " + childFormNumber++;
             frm.Show();

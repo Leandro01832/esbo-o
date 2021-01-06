@@ -89,15 +89,22 @@ namespace business.classes.Abstrato
                 return task.Result;
             });
 
-            return t2.Result;
+            Task<List<modelocrud>> t3 = t2.ContinueWith((task) =>
+            {
+                var p = new Livro().recuperar(null);
+                if (p != null)
+                    task.Result.AddRange(p);
+                return task.Result;
+            });
+
+            return t3.Result;
         }
 
         public override string salvar()
         {
             Insert_padrao = $"insert into Fonte (MensagemId) " +
                 $" values ('{MensagemId}') ";
-
-           // bd.SalvarModelo(null);
+            
             return Insert_padrao;
         }
         

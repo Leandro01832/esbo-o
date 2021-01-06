@@ -30,10 +30,12 @@ namespace WFEsboco.Formulario.PastaFonte
         private void FrmCadastrarVersiculo_Load(object sender, EventArgs e)
         {
              buscarVersiculosBiblia();
-            if (modelo.Id != 0)
+            if (modelo != null)
             {
                 var v = (business.classes.Fontes.Versiculo)modelo;
                 txt_texto.Text = v.Texto;
+                combo_livro.Text = v.Livro;
+                combo_capitulo.Text = v.Capitulo.ToString();                
             }
         }
 
@@ -126,6 +128,11 @@ namespace WFEsboco.Formulario.PastaFonte
                 {
                     combo_versiculo.Items.Add(i);
                 }
+
+                foreach(var item in obj.verses)
+                {
+                    txt_texto.Text += item.number.ToString() + " - " + item.text + "\r\n";
+                }
             }
             catch (Exception ex)
             {
@@ -137,8 +144,7 @@ namespace WFEsboco.Formulario.PastaFonte
         private void combo_versiculo_SelectedIndexChanged(object sender, EventArgs e)
         {
             var modelo = obj.verses.First(i => i.number == int.Parse(combo_versiculo.Text));
-
-            txt_texto.Text = modelo.text;
+            txt_texto.Text = modelo.number + " - " + modelo.text + "\r\n";
         }
     }
 

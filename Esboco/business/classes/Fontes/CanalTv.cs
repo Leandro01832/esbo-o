@@ -3,6 +3,7 @@ using business.database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Forms;
 
 namespace business.classes.Fontes
 {
+    [Table("CanalTv")]
    public class CanalTv : Fonte
     {
         public string NomeCanal { get; set; }
@@ -24,7 +26,7 @@ namespace business.classes.Fontes
 
         public override List<modelocrud> recuperar(int? id)
         {
-            Select_padrao = $" select * from {this.GetType().Name} ";
+            Select_padrao = $" select * from {this.GetType().Name} as M inner join Fonte as F on M.Id=F.Id ";
             if (id != null) Select_padrao += $" where Id='{id}' ";
 
             var conecta = bd.obterconexao();
@@ -45,6 +47,7 @@ namespace business.classes.Fontes
                 {
                     reader.Read();
                     this.Id = int.Parse(reader["Id"].ToString());
+                    this.MensagemId = int.Parse(reader["MensagemId"].ToString());
                     this.NomeCanal = reader["NomeCanal"].ToString();
                     this.NomePrograma = reader["NomePrograma"].ToString();
                     this.Horario = TimeSpan.Parse(reader["Horario"].ToString());
@@ -65,6 +68,7 @@ namespace business.classes.Fontes
                     {
                         CanalTv v = new CanalTv();
                         v.Id = int.Parse(reader["Id"].ToString());
+                        v.MensagemId = int.Parse(reader["MensagemId"].ToString());
                         v.NomeCanal = reader["NomeCanal"].ToString();
                         v.NomePrograma = reader["NomePrograma"].ToString();
                         v.Horario = TimeSpan.Parse(reader["Horario"].ToString());
@@ -83,8 +87,8 @@ namespace business.classes.Fontes
         public override string salvar()
         {
             Insert_padrao = base.salvar();
-            Insert_padrao += $"insert into {this.GetType().Name} (NomeCanal, NomePrograma, Horario) " +
-                $" values ('{NomeCanal}', '{NomePrograma}', '{Horario}')";
+            Insert_padrao += $"insert into {this.GetType().Name} (NomeCanal, NomePrograma, Horario, Id) " +
+                $" values ('{NomeCanal}', '{NomePrograma}', '{Horario}', IDENT_CURRENT('Fonte'))";
 
             bd.SalvarModelo(this);
             return Insert_padrao;

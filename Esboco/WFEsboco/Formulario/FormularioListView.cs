@@ -1,4 +1,5 @@
 ﻿
+using business.classes.Abstrato;
 using business.database;
 using System;
 using System.Collections.Generic;
@@ -176,6 +177,11 @@ namespace WFEsboco.Formulario
              lista = new List<modelocrud>();
             if (Modelo != null)
             lista = await Task.Run(() => Modelo.recuperar(null));
+            else
+            {
+                if (Modelo == null && Tipo == "Fonte")
+                    lista =  Fonte.recuperarTodasFontes();
+            }
 
             ListView.Dock = DockStyle.Left;
 
@@ -190,11 +196,11 @@ namespace WFEsboco.Formulario
                        
                     }
                     else
-                    if (v is business.classes.Abstrato.Fonte)
+                    if (v is Fonte)
                     {
-                        business.classes.Abstrato.Fonte m;
-                        m = (business.classes.Abstrato.Fonte)v;
-                        ListView.Items.Add(m.Id.ToString() + " - ");
+                        Fonte m;
+                        m = (Fonte)v;
+                        ListView.Items.Add("Id da fonte " + m.Id.ToString() + " - Id da mensagem: " + m.MensagemId.ToString());
                         
                     }
                 }

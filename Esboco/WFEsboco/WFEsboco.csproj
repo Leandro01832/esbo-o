@@ -87,6 +87,12 @@
     <Compile Include="Formulario\PastaFonte\FrmCadastrarCanalTv.Designer.cs">
       <DependentUpon>FrmCadastrarCanalTv.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formulario\PastaFonte\FrmCadastrarLivro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\PastaFonte\FrmCadastrarLivro.Designer.cs">
+      <DependentUpon>FrmCadastrarLivro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formulario\PastaFonte\FrmCanalTv.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,12 @@
     <Compile Include="Formulario\PastaFonte\FrmCadastrarVersiculo.Designer.cs">
       <DependentUpon>FrmCadastrarVersiculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formulario\PastaFonte\FrmLivro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\PastaFonte\FrmLivro.Designer.cs">
+      <DependentUpon>FrmLivro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formulario\PastaFonte\FrmVersiculo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +157,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ListViews\ListViewFonte.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListViews\ListViewLivro.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ListViews\ListViewMensagem.cs">
@@ -198,6 +213,9 @@
     <EmbeddedResource Include="Formulario\PastaFonte\FrmCadastrarCanalTv.resx">
       <DependentUpon>FrmCadastrarCanalTv.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\PastaFonte\FrmCadastrarLivro.resx">
+      <DependentUpon>FrmCadastrarLivro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formulario\PastaFonte\FrmCanalTv.resx">
       <DependentUpon>FrmCanalTv.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\PastaFonte\FrmCadastrarVersiculo.resx">
       <DependentUpon>FrmCadastrarVersiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\PastaFonte\FrmLivro.resx">
+      <DependentUpon>FrmLivro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\PastaFonte\FrmVersiculo.resx">
       <DependentUpon>FrmVersiculo.cs</DependentUpon>

@@ -49,6 +49,7 @@
             this.txt_id_mensagem.Name = "txt_id_mensagem";
             this.txt_id_mensagem.Size = new System.Drawing.Size(199, 30);
             this.txt_id_mensagem.TabIndex = 1;
+            this.txt_id_mensagem.TextChanged += new System.EventHandler(this.txt_id_mensagem_TextChanged);
             // 
             // FrmDadoFonte
             // 

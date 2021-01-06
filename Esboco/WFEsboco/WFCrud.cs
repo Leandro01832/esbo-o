@@ -76,7 +76,7 @@ namespace WFEsboco
             BtnDadoClasse = new Button();
             BtnDadoClasse.Location = new System.Drawing.Point(50, 50);
             BtnDadoClasse.Size = new System.Drawing.Size(100, 50);
-            BtnDadoClasse.Text = "Versiculos da fonte";
+            BtnDadoClasse.Text = "Dados da classe";
             BtnDadoClasse.Click += BtnDadoClasse_Click;
             BtnDadoClasse.Visible = false;
 
@@ -219,6 +219,14 @@ namespace WFEsboco
                 frm.MdiParent = this.MdiParent;
                 frm.Show();
             }
+
+            if (modelo is Livro)
+            {
+                FrmCadastrarLivro frm =
+                new FrmCadastrarLivro(modelo, CondicaoDeletar, CondicaoAtualizar, CondicaoDetalhes);
+                frm.MdiParent = this.MdiParent;
+                frm.Show();
+            }
         }
 
        
@@ -290,7 +298,7 @@ namespace WFEsboco
             {
                 if(this is FrmDadoFonte)
                 {
-                    if(modelo is Versiculo)
+                    if (modelo is Versiculo)
                     {
                         FrmCadastrarVersiculo frm =
                         new FrmCadastrarVersiculo(modelo, CondicaoDeletar, CondicaoAtualizar, CondicaoDetalhes);
@@ -308,15 +316,23 @@ namespace WFEsboco
                         frm.Show();
                     }
 
-                    if(this is FrmCadastrarVersiculo || this is FrmCadastrarCanalTv)
+                    if (modelo is Livro)
                     {
-                        FrmFinalizarCadastroFonte frm = 
-                        new FrmFinalizarCadastroFonte(modelo, CondicaoDeletar, CondicaoAtualizar, CondicaoDetalhes);
+                        FrmCadastrarLivro frm =
+                        new FrmCadastrarLivro(modelo, CondicaoDeletar, CondicaoAtualizar, CondicaoDetalhes);
                         frm.MdiParent = this.MdiParent;
                         this.Close();
                         frm.Show();
                     }
+                }
 
+                if (this is FrmCadastrarVersiculo || this is FrmCadastrarCanalTv || this is FrmCadastrarLivro)
+                {
+                    FrmFinalizarCadastroFonte frm =
+                    new FrmFinalizarCadastroFonte(modelo, CondicaoDeletar, CondicaoAtualizar, CondicaoDetalhes);
+                    frm.MdiParent = this.MdiParent;
+                    this.Close();
+                    frm.Show();
                 }
             }
             

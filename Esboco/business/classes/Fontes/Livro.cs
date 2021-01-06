@@ -1,38 +1,30 @@
-﻿using System;
+﻿using business.classes.Abstrato;
+using business.database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using business.classes.Abstrato;
-using business.database;
 
 namespace business.classes.Fontes
 {
-    [Table("Versiculo")]
-    public class Versiculo : Fonte
+    [Table("Livro")]
+    public class Livro : Fonte
     {
-        public Versiculo() : base()
+        public string NomeLivro { get; set; }
+        public string NomeAutor { get; set; }
+
+        public Livro() : base()
         {
 
         }
-        public string Livro { get; set; }
-        public string Texto { get; set; }
-        public int Capitulo { get; set; }
 
-        public override string alterar(int id)
+        public Livro(int? id, bool recuperaLista) : base(id, recuperaLista)
         {
-            Update_padrao = base.alterar(id);
-            Update_padrao += $"update {this.GetType().Name} set Livro={Livro}, Texto={Texto}, " +
-            $" Capitulo={Capitulo} where Id='{id}' ";
-            bd.Editar(this);
-            return Update_padrao;
-        }
 
-        public override string excluir(int id)
-        {
-            Delete_padrao = $"delete from {this.GetType().Name} where Id='{id}' " + base.excluir(id);
-            bd.Excluir(this);
-            return Delete_padrao;
         }
 
         public override List<modelocrud> recuperar(int? id)
@@ -59,8 +51,8 @@ namespace business.classes.Fontes
                     reader.Read();
                     this.Id = int.Parse(reader["Id"].ToString());
                     this.MensagemId = int.Parse(reader["MensagemId"].ToString());
-                    this.Capitulo = int.Parse(reader["Capitulo"].ToString());
-                    this.Texto = reader["Texto"].ToString();
+                    this.NomeAutor = reader["NomeAutor"].ToString();
+                    this.NomeLivro = reader["NomeLivro"].ToString();
                     reader.Close();
                     modelos.Add(this);
                 }
@@ -76,13 +68,12 @@ namespace business.classes.Fontes
                 {
                     while (reader.Read())
                     {
-                        Versiculo v = new Versiculo();
-                        v.Id = int.Parse(reader["Id"].ToString());
-                        v.MensagemId = int.Parse(reader["MensagemId"].ToString());
-                        v.Capitulo = int.Parse(reader["Capitulo"].ToString());
-                        v.Texto = reader["Texto"].ToString();
-                        v.Livro = reader["Livro"].ToString();
-                        modelos.Add(v);
+                        Livro livro = new Livro();
+                        livro.Id = int.Parse(reader["Id"].ToString());
+                        livro.MensagemId = int.Parse(reader["MensagemId"].ToString());
+                        livro.NomeAutor = reader["NomeAutor"].ToString();
+                        livro.NomeLivro = reader["NomeLivro"].ToString();
+                        modelos.Add(livro);
                     }
                     reader.Close();
                 }
@@ -92,16 +83,31 @@ namespace business.classes.Fontes
                 }
                 return modelos;
             }
-
         }
 
         public override string salvar()
         {
-            Insert_padrao = base.salvar();
-            Insert_padrao += $" insert into {this.GetType().Name} (Capitulo, Texto, Livro, Id) " +
-            $" values ('{Capitulo}', '{Texto}', '{Livro}', IDENT_CURRENT('Fonte'))";
+            Insert_padrao =  base.salvar();
+            Insert_padrao += $"insert into {this.GetType().Name} " +
+                $" (NomeAutor, NomeLivro, Id) values ('{NomeAutor}', '{NomeLivro}', IDENT_CURRENT('Fonte'))";
+
             bd.SalvarModelo(this);
             return Insert_padrao;
+        }
+
+        public override string excluir(int id)
+        {
+            Delete_padrao = $"delete from {this.GetType().Name} where Id='{id}' " + base.excluir(id);
+            return Delete_padrao;
+        }
+
+        public override string alterar(int id)
+        {
+            Update_padrao = base.alterar(id);
+            Update_padrao += $" update {this.GetType().Name} " +
+            $" set NomeAutor={NomeAutor}, NomeLivro={NomeLivro} where Id='{id}' ";
+
+            return Update_padrao;
         }
     }
 }

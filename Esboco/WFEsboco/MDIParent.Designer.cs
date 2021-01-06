@@ -36,10 +36,13 @@
             this.mensagemToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fonteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.versiculoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.canalDeTvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mensagemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fonteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.versiculoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.canalDeTvToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,7 +90,8 @@
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.versiculoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.livroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.livroToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -133,8 +137,7 @@
             // 
             this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mensagemToolStripMenuItem1,
-            this.fonteToolStripMenuItem1,
-            this.versiculoToolStripMenuItem1});
+            this.fonteToolStripMenuItem1});
             this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
@@ -146,23 +149,34 @@
             // mensagemToolStripMenuItem1
             // 
             this.mensagemToolStripMenuItem1.Name = "mensagemToolStripMenuItem1";
-            this.mensagemToolStripMenuItem1.Size = new System.Drawing.Size(157, 26);
+            this.mensagemToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
             this.mensagemToolStripMenuItem1.Text = "Mensagem";
             this.mensagemToolStripMenuItem1.Click += new System.EventHandler(this.mensagemToolStripMenuItem1_Click);
             // 
             // fonteToolStripMenuItem1
             // 
+            this.fonteToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.versiculoToolStripMenuItem1,
+            this.canalDeTvToolStripMenuItem,
+            this.livroToolStripMenuItem1});
             this.fonteToolStripMenuItem1.Name = "fonteToolStripMenuItem1";
-            this.fonteToolStripMenuItem1.Size = new System.Drawing.Size(157, 26);
+            this.fonteToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
             this.fonteToolStripMenuItem1.Text = "Fonte";
             this.fonteToolStripMenuItem1.Click += new System.EventHandler(this.fonteToolStripMenuItem1_Click);
             // 
             // versiculoToolStripMenuItem1
             // 
             this.versiculoToolStripMenuItem1.Name = "versiculoToolStripMenuItem1";
-            this.versiculoToolStripMenuItem1.Size = new System.Drawing.Size(157, 26);
+            this.versiculoToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
             this.versiculoToolStripMenuItem1.Text = "Versiculo";
-            this.versiculoToolStripMenuItem1.Click += new System.EventHandler(this.versiculoToolStripMenuItem1_Click);
+            this.versiculoToolStripMenuItem1.Click += new System.EventHandler(this.versiculoToolStripMenuItem1_Click_1);
+            // 
+            // canalDeTvToolStripMenuItem
+            // 
+            this.canalDeTvToolStripMenuItem.Name = "canalDeTvToolStripMenuItem";
+            this.canalDeTvToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.canalDeTvToolStripMenuItem.Text = "Canal de tv";
+            this.canalDeTvToolStripMenuItem.Click += new System.EventHandler(this.canalDeTvToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -191,11 +205,27 @@
             // fonteToolStripMenuItem
             // 
             this.fonteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.versiculoToolStripMenuItem});
+            this.versiculoToolStripMenuItem,
+            this.canalDeTvToolStripMenuItem1,
+            this.livroToolStripMenuItem});
             this.fonteToolStripMenuItem.Name = "fonteToolStripMenuItem";
             this.fonteToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.fonteToolStripMenuItem.Text = "Fonte";
             this.fonteToolStripMenuItem.Click += new System.EventHandler(this.fonteToolStripMenuItem_Click);
+            // 
+            // versiculoToolStripMenuItem
+            // 
+            this.versiculoToolStripMenuItem.Name = "versiculoToolStripMenuItem";
+            this.versiculoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.versiculoToolStripMenuItem.Text = "Versiculo";
+            this.versiculoToolStripMenuItem.Click += new System.EventHandler(this.versiculoToolStripMenuItem_Click_1);
+            // 
+            // canalDeTvToolStripMenuItem1
+            // 
+            this.canalDeTvToolStripMenuItem1.Name = "canalDeTvToolStripMenuItem1";
+            this.canalDeTvToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+            this.canalDeTvToolStripMenuItem1.Text = "Canal de tv";
+            this.canalDeTvToolStripMenuItem1.Click += new System.EventHandler(this.canalDeTvToolStripMenuItem1_Click);
             // 
             // toolStripSeparator4
             // 
@@ -580,12 +610,19 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Esboçamento";
             // 
-            // versiculoToolStripMenuItem
+            // livroToolStripMenuItem
             // 
-            this.versiculoToolStripMenuItem.Name = "versiculoToolStripMenuItem";
-            this.versiculoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.versiculoToolStripMenuItem.Text = "Versiculo";
-            this.versiculoToolStripMenuItem.Click += new System.EventHandler(this.versiculoToolStripMenuItem_Click_1);
+            this.livroToolStripMenuItem.Name = "livroToolStripMenuItem";
+            this.livroToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.livroToolStripMenuItem.Text = "Livro";
+            this.livroToolStripMenuItem.Click += new System.EventHandler(this.livroToolStripMenuItem_Click);
+            // 
+            // livroToolStripMenuItem1
+            // 
+            this.livroToolStripMenuItem1.Name = "livroToolStripMenuItem1";
+            this.livroToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+            this.livroToolStripMenuItem1.Text = "Livro";
+            this.livroToolStripMenuItem1.Click += new System.EventHandler(this.livroToolStripMenuItem1_Click);
             // 
             // MDIParent
             // 
@@ -668,11 +705,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem mensagemToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem fonteToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem versiculoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mensagemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fonteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pesquisarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem versiculoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem versiculoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem canalDeTvToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem canalDeTvToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem livroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem livroToolStripMenuItem1;
     }
 }
 

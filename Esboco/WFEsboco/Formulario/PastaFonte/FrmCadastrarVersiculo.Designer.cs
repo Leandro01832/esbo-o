@@ -30,8 +30,6 @@
         {
             this.txt_texto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_id_fonte = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.combo_livro = new System.Windows.Forms.ComboBox();
             this.combo_capitulo = new System.Windows.Forms.ComboBox();
@@ -46,7 +44,7 @@
             this.txt_texto.Location = new System.Drawing.Point(151, 292);
             this.txt_texto.Multiline = true;
             this.txt_texto.Name = "txt_texto";
-            this.txt_texto.Size = new System.Drawing.Size(637, 146);
+            this.txt_texto.Size = new System.Drawing.Size(637, 429);
             this.txt_texto.TabIndex = 3;
             this.txt_texto.TextChanged += new System.EventHandler(this.txt_texto_TextChanged);
             // 
@@ -59,24 +57,6 @@
             this.label2.Size = new System.Drawing.Size(62, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Texto";
-            // 
-            // txt_id_fonte
-            // 
-            this.txt_id_fonte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_id_fonte.Location = new System.Drawing.Point(151, 39);
-            this.txt_id_fonte.Name = "txt_id_fonte";
-            this.txt_id_fonte.Size = new System.Drawing.Size(243, 30);
-            this.txt_id_fonte.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 44);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 25);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Id da fonte";
             // 
             // label4
             // 
@@ -142,15 +122,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(799, 733);
             this.Controls.Add(this.combo_versiculo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.combo_capitulo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.combo_livro);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txt_id_fonte);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txt_texto);
             this.Controls.Add(this.label2);
             this.Name = "FrmCadastrarVersiculo";
@@ -164,8 +142,6 @@
         #endregion
         private System.Windows.Forms.TextBox txt_texto;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_id_fonte;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox combo_livro;
         private System.Windows.Forms.ComboBox combo_capitulo;

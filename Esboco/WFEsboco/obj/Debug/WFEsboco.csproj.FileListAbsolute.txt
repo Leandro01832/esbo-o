@@ -66,3 +66,5 @@ C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.Formulario.PastaFonte.FrmCadastrarCanalTv.resources
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.Formulario.PastaFonte.FrmDadoFonte.resources
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.Formulario.PastaFonte.FrmCanalTv.resources
+C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.Formulario.PastaFonte.FrmCadastrarLivro.resources
+C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.Formulario.PastaFonte.FrmLivro.resources

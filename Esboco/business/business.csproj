@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="classes\Abstrato\Fonte.cs" />
     <Compile Include="classes\Fontes\CanalTv.cs" />
+    <Compile Include="classes\Fontes\Livro.cs" />
     <Compile Include="classes\Mensagem.cs" />
     <Compile Include="classes\Fontes\Versiculo.cs" />
     <Compile Include="database\BDcomum.cs" />
