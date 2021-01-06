@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using business.classes.Fontes;
+using business.classes;
 
 namespace WFEsboco
 {
@@ -28,110 +30,30 @@ namespace WFEsboco
         string comando = "";
         string tipo = "";
 
-        
-
-        private void FormataDataGrid(bool Pessoa, bool Ministerio,
-        bool Celula, bool Chamada, bool Reuniao, bool Historico)
+        private void FormataDataGrid(bool Mensagem, bool Fonte)
         {
             comboBox1.Text = "";
             comboBox1.Items.Clear();
             check_pesquisa_id.Enabled = true;
-            check_pesquisa_nome.Enabled = false;
 
-            if (Pessoa)
+            if (Mensagem)
             {
-                tipo = "Pessoa";
+                tipo = "Mensagem";
                 dgdados.Columns.Clear();
                 dgdados.Columns.Add("Id", "Id");
-                dgdados.Columns.Add("Email", "Email");
-                dgdados.Columns.Add("celula_", "Celula");
-                dgdados.Columns.Add("Falta", "Falta");
-                dgdados.Columns.Add("Img", "Imagem");
-                dgdados.Columns[1].Width = 300;
                 
-                comboBox1.Items.Add("Visitante");
-                comboBox1.Items.Add("Criança");
-                comboBox1.Items.Add("Membro por aclamação");
-                comboBox1.Items.Add("Membro por batismo");
-                comboBox1.Items.Add("Membro por reconciliação");
-                comboBox1.Items.Add("Membro por trandferência");
             }
 
-            if (Ministerio)
+            if (Fonte)
             {
-                tipo = "Ministerio";
-                check_pesquisa_nome.Enabled = true;
+                tipo = "Fonte";
                 dgdados.Columns.Clear();
                 dgdados.Columns.Add("Id", "Id");
-                dgdados.Columns.Add("Nome", "Nome");
-                dgdados.Columns.Add("Maximo_pessoa", "Maximo de pessoas");
-                dgdados.Columns.Add("Ministro_", "Ministro");
-                dgdados.Columns.Add("Proposito", "Proposito");
-                dgdados.Columns[2].Width = 300;
-                
-                comboBox1.Items.Add("Lider de celula");
-                comboBox1.Items.Add("Lider em treinamento de celula");
-                comboBox1.Items.Add("Lider de ministério");
-                comboBox1.Items.Add("Lider em treinamento de ministério");
-                comboBox1.Items.Add("Supervisor de celula");
-                comboBox1.Items.Add("Supervisor em treinamento de celula");
-                comboBox1.Items.Add("Supervisor de ministério");
-                comboBox1.Items.Add("Supervisor em treinamento de ministério");
+                dgdados.Columns.Add("MensagemId", "Id da mensagem");
+
+                comboBox1.Items.Add("Canal de tv");
+                comboBox1.Items.Add("Versiculo");
             }
-
-            if (Celula)
-            {
-                tipo = "Celula";
-                check_pesquisa_nome.Enabled = true;
-                dgdados.Columns.Clear();
-                dgdados.Columns.Add("Id", "Id");
-                dgdados.Columns.Add("Nome", "Nome");
-                dgdados.Columns.Add("Maximo_pessoa", "Maximo de pessoas");
-                dgdados.Columns.Add("Dia_semana", "Dia da semana");
-                dgdados.Columns.Add("Horario", "Horário");
-                dgdados.Columns[2].Width = 300;
-                dgdados.Columns[4].Width = 150;
-                
-                comboBox1.Items.Add("Celula para adolescentes");
-                comboBox1.Items.Add("Celula para adultos");
-                comboBox1.Items.Add("Celula para jovens");
-                comboBox1.Items.Add("Celula para crianças");
-                comboBox1.Items.Add("Celula para casados");
-            }
-
-            if (Chamada)
-            {
-                dgdados.Columns.Clear();
-                dgdados.Columns.Add("Id", "Id");
-                dgdados.Columns.Add("Data_inicio", "Data de início");
-                dgdados.Columns.Add("Numero_chamada", "numero da chamada");
-                dgdados.Columns[1].Width = 300;
-                dgdados.Columns[2].Width = 300;
-            }
-
-            if (Reuniao)
-            {
-                dgdados.Columns.Clear();
-                dgdados.Columns.Add("Id", "Id");
-                dgdados.Columns.Add("Data_reuniao", "Data da reunião");
-                dgdados.Columns.Add("Horario_inicio", "Horário que inicia");
-                dgdados.Columns.Add("Horario_fim", "Horário que termina");
-                dgdados.Columns[1].Width = 300;
-                dgdados.Columns[2].Width = 300;
-            }
-
-            if (Historico)
-            {
-                dgdados.Columns.Clear();
-                dgdados.Columns.Add("Id", "Id");
-                dgdados.Columns.Add("Data_inicio", "Data de inicio do semestre");
-                dgdados.Columns.Add("Falta", "Faltas");
-                dgdados.Columns.Add("pessoaid", "Identificação da pessoa");
-                dgdados.Columns[1].Width = 400;
-                dgdados.Columns[3].Width = 400;
-            }
-
-
         }
 
         private void Pesquisar_Load(object sender, EventArgs e)
@@ -142,30 +64,113 @@ namespace WFEsboco
 
         private void ModificaDataGridView(modelocrud m, string tipo, string comando)
         {
-            if(m == null && tipo == "Pessoa")
+            if(m == null && tipo == "Fonte")
             {
-                FormataDataGrid(true, false, false, false, false, false);
+                FormataDataGrid(false, true);
             }
 
-            if (m == null && tipo == "Ministerio")
+            if(m is Mensagem)
+            FormataDataGrid(true, false);
+
+            if (m is Versiculo)
             {
-                FormataDataGrid(false, true, false, false, false, false);
+                dgdados.Columns.Add("Livro", "Livro");
+                dgdados.Columns.Add("Capitulo", "Capitulo");
+                dgdados.Columns.Add("Texto", "Texto");
             }
 
-            if (m == null && tipo == "Celula")
+            if (m is CanalTv)
             {
-                FormataDataGrid(false, false, true, false, false, false);
-            }
-
-            if(m is business.classes.Mensagem)
-            {
+                dgdados.Columns.Add("NomeCanal", "NomeCanal");
+                dgdados.Columns.Add("NomePrograma", "NomePrograma");
+                dgdados.Columns.Add("Horario", "Horario");
             }
 
             foreach (var item in pesquisa.BuscarPorRestricao(m, tipo, comando))
             {
+                if (m is business.classes.Abstrato.Fonte)
+                {
+                    if (m is CanalTv)
+                    {
+                        CanalTv info = (CanalTv)item;
+                        dgdados.Rows.Add(info.Id, info.MensagemId, info.NomeCanal, info.NomePrograma,
+                        info.Horario);
+                    }
+
+                    if (m is Versiculo)
+                    {
+                        Versiculo info = (Versiculo)item;
+                        dgdados.Rows.Add(info.Id, info.MensagemId, info.Livro,
+                        info.Capitulo, info.Texto);
+                    }
+                }
             }
         }
 
-        
+        private void radio_fonte_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox1.Text = "Escolha o tipo se necessário.";
+            comando = "";
+            FormataDataGrid(false, true);
+            if (radio_fonte.Checked)
+                MessageBox.Show("Você esta vendo informações de fontes.");
+
+            foreach (var item in pesquisa.BuscarPorRestricao(modelo, tipo, comando))
+            {
+                var dado = (business.classes.Abstrato.Fonte)item;
+                dgdados.Rows.Add(dado.Id, dado.MensagemId);
+            }
+
+        }
+
+        private void radio_mensagem_CheckedChanged(object sender, EventArgs e)
+        {
+            comando = "";
+            modelo = new Mensagem();
+            FormataDataGrid(true, false);
+            if (radio_fonte.Checked)
+                MessageBox.Show("Você esta vendo informações de Mensagens.");
+
+            foreach (var item in pesquisa.BuscarPorRestricao(modelo, tipo, comando))
+            {
+                var dado = (business.classes.Mensagem)item;
+                dgdados.Rows.Add(dado.Id, dado.Tipo);
+            }
+        }
+
+        private void check_pesquisa_id_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void check_pesquisa_nome_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void check_pesquisa_texto_CheckedChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void check_pesquisa_tipo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void check_pesquisa_id_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (check_pesquisa_id.Checked)
+            {
+                MessageBox.Show("Digite dois valores e o resultado da pesquisa será entre esses dois valores.");
+                txt_pesquisa_id_valor1.Enabled = true;
+                txt_pesquisa_id_valor2.Enabled = true;
+                if (comando != "") comando += " and ";
+                comando += $" Id>='@pesquisaid1' " +
+                        $" and Id<='@pesquisaid2' ";
+                txt_pesquisa_id_valor1.Focus();
+            }
+        }
     }
 }

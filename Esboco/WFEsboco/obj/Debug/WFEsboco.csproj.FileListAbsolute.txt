@@ -47,7 +47,6 @@ C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.Formulario.Mensagem.FrmMensagem.resources
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.Formulario.PastaFonte.FrmFinalizarCadastroFonte.resources
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.Formulario.PastaFonte.FrmFonte.resources
-C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.Formulario.PastaFonte.FrmVersiculos.resources
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.FrmCrudFonte.resources
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.FrmCrudMensagem.resources
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.FrmCrudVersiculo.resources
@@ -64,3 +63,6 @@ C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\bin\Debug\Newtonso
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\bin\Debug\Newtonsoft.Json.xml
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.Formulario.PastaFonte.FrmCadastrarVersiculo.resources
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.Formulario.PastaFonte.FrmVersiculo.resources
+C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.Formulario.PastaFonte.FrmCadastrarCanalTv.resources
+C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.Formulario.PastaFonte.FrmDadoFonte.resources
+C:\Users\leand\Documents\codigo-github\Esboco\Esboco\WFEsboco\obj\Debug\WFEsboco.Formulario.PastaFonte.FrmCanalTv.resources

@@ -7,9 +7,9 @@ using business.database;
 
 namespace WFEsboco.ListViews
 {
-    public class ListViewVersiculo : ListViewFonte
+    public class ListViewCanalTv : ListViewFonte
     {
-        public ListViewVersiculo(modelocrud modelo, string tipo) : base(modelo, tipo)
+        public ListViewCanalTv(modelocrud modelo, string tipo) : base(modelo, tipo)
         {
         }
     }

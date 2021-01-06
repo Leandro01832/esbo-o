@@ -30,12 +30,9 @@ namespace WFEsboco
         private Button BtnDadoMensagem;
 
         //Botões para Fontes
-        private Button BtnVersiculos;
+        private Button BtnDadoClasse;
         private Button BtnDadoFonte;
-
-        //Botões para versiculo
-        private Button BtnDadoVersiculo;
-
+        
 
         public modelocrud modelo { get; set; }
         public bool CondicaoDeletar { get => condicaoDeletar; set => condicaoDeletar = value; }
@@ -76,12 +73,12 @@ namespace WFEsboco
             BtnDadoMensagem.Click += BtnDadoMensagem_Click;
             BtnDadoMensagem.Visible = false;
 
-            BtnVersiculos = new Button();
-            BtnVersiculos.Location = new System.Drawing.Point(50, 50);
-            BtnVersiculos.Size = new System.Drawing.Size(100, 50);
-            BtnVersiculos.Text = "Versiculos da fonte";
-            BtnVersiculos.Click += BtnVersiculos_Click;
-            BtnVersiculos.Visible = false;
+            BtnDadoClasse = new Button();
+            BtnDadoClasse.Location = new System.Drawing.Point(50, 50);
+            BtnDadoClasse.Size = new System.Drawing.Size(100, 50);
+            BtnDadoClasse.Text = "Versiculos da fonte";
+            BtnDadoClasse.Click += BtnDadoClasse_Click;
+            BtnDadoClasse.Visible = false;
 
             BtnDadoFonte = new Button();
             BtnDadoFonte.Location = new System.Drawing.Point(200, 50);
@@ -89,13 +86,6 @@ namespace WFEsboco
             BtnDadoFonte.Text = "dados da fonte";
             BtnDadoFonte.Click += BtnDadoFonte_Click;
             BtnDadoFonte.Visible = false;
-
-            BtnDadoVersiculo = new Button();
-            BtnDadoVersiculo.Location = new System.Drawing.Point(50, 50);
-            BtnDadoVersiculo.Size = new System.Drawing.Size(100, 50);
-            BtnDadoVersiculo.Text = "Dados do versiculo";
-            BtnDadoVersiculo.Click += BtnDadoVersiculo_Click;
-            BtnDadoVersiculo.Visible = false;
 
             Proximo = new Button();
             Proximo.Click += Proximo_Click;
@@ -132,9 +122,7 @@ namespace WFEsboco
             this.Controls.Add(BtnDadoMensagem);
 
             this.Controls.Add(BtnDadoFonte);
-            this.Controls.Add(BtnVersiculos);
-
-            this.Controls.Add(BtnDadoVersiculo);
+            this.Controls.Add(BtnDadoClasse);
 
             this.Controls.Add(FinalizarCadastro);
 
@@ -149,16 +137,17 @@ namespace WFEsboco
             }
 
             if (modelo is business.classes.Abstrato.Fonte &&
-            this.GetType().Name == "FrmFinalizarCadastroFonte")
+            this is FrmFinalizarCadastroFonte)
             {
-                BtnVersiculos.Visible = true;
+                BtnDadoClasse.Visible = true;
                 BtnDadoFonte.Visible = true;
             }
 
             if (modelo is business.classes.Fontes.Versiculo &&
-            this.GetType().Name == "FrmFinalizarCadastroVersiculo")
+            this is FrmFinalizarCadastroFonte)
             {
-                BtnDadoVersiculo.Visible = true;
+                BtnDadoClasse.Visible = true;
+                BtnDadoFonte.Visible = true;
             }
 
 
@@ -214,23 +203,35 @@ namespace WFEsboco
                 Deletar.Visible = true;
         }
 
-        private void BtnDadoVersiculo_Click(object sender, EventArgs e)
+        private void BtnDadoClasse_Click(object sender, EventArgs e)
         {
-            FrmCadastrarVersiculo frm =
-            new FrmCadastrarVersiculo(modelo, CondicaoDeletar, CondicaoAtualizar, CondicaoDetalhes);
+            if(modelo is CanalTv)
+            {
+                FrmCadastrarCanalTv frm =
+                new FrmCadastrarCanalTv(modelo, CondicaoDeletar, CondicaoAtualizar, CondicaoDetalhes);
+                frm.MdiParent = this.MdiParent;
+                frm.Show();
+            }
+            if(modelo is Versiculo)
+            {
+                FrmCadastrarVersiculo frm = 
+                new FrmCadastrarVersiculo(modelo, CondicaoDeletar, CondicaoAtualizar, CondicaoDetalhes);
+                frm.MdiParent = this.MdiParent;
+                frm.Show();
+            }
+        }
+
+       
+
+        private void BtnDadoFonte_Click(object sender, EventArgs e)
+        {
+            FrmDadoFonte frm = 
+            new FrmDadoFonte(modelo, CondicaoDeletar, CondicaoAtualizar, CondicaoDetalhes);
             frm.MdiParent = this.MdiParent;
             frm.Show();
         }
 
-        private void BtnDadoFonte_Click(object sender, EventArgs e)
-        {
-         
-        }
-
-        private void BtnVersiculos_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         private void BtnDadoMensagem_Click(object sender, EventArgs e)
         {
@@ -311,6 +312,9 @@ namespace WFEsboco
                     {
                         FrmFinalizarCadastroFonte frm = 
                         new FrmFinalizarCadastroFonte(modelo, CondicaoDeletar, CondicaoAtualizar, CondicaoDetalhes);
+                        frm.MdiParent = this.MdiParent;
+                        this.Close();
+                        frm.Show();
                     }
 
                 }
