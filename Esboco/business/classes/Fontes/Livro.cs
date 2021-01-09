@@ -21,16 +21,12 @@ namespace business.classes.Fontes
         {
 
         }
-
-        public Livro(int? id, bool recuperaLista) : base(id, recuperaLista)
-        {
-
-        }
+        
 
         public override List<modelocrud> recuperar(int? id)
         {
             Select_padrao = $"select * from {this.GetType().Name} as M inner join Fonte as F on M.Id=F.Id ";
-            if (id != null) Select_padrao += $" where Id='{id}' ";
+            if (id != null) Select_padrao += $" where M.Id='{id}' ";
 
             var conecta = bd.obterconexao();
             conecta.Open();
@@ -46,6 +42,7 @@ namespace business.classes.Fontes
 
             if (id != null)
             {
+                base.recuperar(id);
                 try
                 {
                     reader.Read();

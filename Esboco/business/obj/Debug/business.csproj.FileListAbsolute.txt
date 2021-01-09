@@ -25,4 +25,3 @@ C:\Users\leand\Documents\codigo-github\Esboco\Esboco\business\bin\Debug\EntityFr
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\business\bin\Debug\EntityFramework.xml
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\business\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\business\obj\Debug\business.csproj.CopyComplete
-C:\Users\leand\Documents\codigo-github\Esboco\Esboco\business\obj\Debug\business.csprojAssemblyReference.cache

@@ -14,13 +14,13 @@ namespace ConsoleTeste
     {
         static void Main(string[] args)
         {
-            Mensagem m = (Mensagem)new Mensagem(1, true).recuperar(1)[0];
+            Mensagem m = (Mensagem) new Mensagem().recuperar(1)[0];
 
             Console.WriteLine("Esta é a nossa mensagem: " + m.Tipo);
             Console.WriteLine(" -------------------------------||------------------------------- ");
             Console.WriteLine(" --Fontes da mensagem-- ");
             Console.WriteLine(" --Versiculos-- ");
-            foreach (var fonte in m.Fonte.OfType<Versiculo>())
+            foreach (var fonte in m.Fontes.OfType<Versiculo>())
             {
                 Console.WriteLine("Livro: " + fonte.Livro);
                 Console.WriteLine("Capitulo: " + fonte.Capitulo);
@@ -28,8 +28,6 @@ namespace ConsoleTeste
             }
 
             Console.ReadKey(true);
-
-
 
         }
     }

@@ -24,7 +24,7 @@ namespace WFEsboco.Formulario.Mensagem
             var m = (business.classes.Mensagem)modelo;
             lbl_fontes.Text = "As fontes da mensagem: ";
 
-            foreach(var f in m.Fonte)
+            foreach(var f in m.Fontes)
             {
                 lbl_fontes.Text += f.Id.ToString() + ", ";
             }

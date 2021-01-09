@@ -3,11 +3,7 @@ using business.classes.Abstrato;
 using business.database;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WFEsboco.Formulario.Mensagem;
@@ -77,7 +73,8 @@ namespace WFEsboco.Formulario
             }
             if (ListView is ListViewMensagem)
             {
-                Modelo = new business.classes.Mensagem(ListView.numero, true).recuperar(ListView.numero)[0];
+                Modelo = lista.First(m => m.Id == ListView.numero);
+                Modelo = Modelo.recuperar(Modelo.Id)[0];
 
                 FrmFinalizarCadastroMensagem frm = new FrmFinalizarCadastroMensagem(Modelo, false, false, true);
                 frm.MdiParent = this.MdiParent;
@@ -86,19 +83,9 @@ namespace WFEsboco.Formulario
 
             if (ListView is ListViewFonte)
             {
-                List<business.classes.Abstrato.Fonte> lista2 = new List<business.classes.Abstrato.Fonte>();
-                foreach (var item in lista)
-                 lista2.Add((business.classes.Abstrato.Fonte)item);
-                Modelo = lista2.First(i => i.Id == ListView.numero);
+                Modelo = lista.First(m => m.Id == ListView.numero);
+                Modelo = Modelo.recuperar(Modelo.Id)[0];
 
-                FrmFinalizarCadastroFonte frm = new FrmFinalizarCadastroFonte(Modelo, false, false, true);
-                frm.MdiParent = this.MdiParent;
-                frm.Show();
-            }
-
-            if (ListView is ListViewVersiculo)
-            {
-                Modelo = new business.classes.Fontes.Versiculo().recuperar(ListView.numero)[0];
                 FrmFinalizarCadastroFonte frm = new FrmFinalizarCadastroFonte(Modelo, false, false, true);
                 frm.MdiParent = this.MdiParent;
                 frm.Show();
@@ -114,7 +101,8 @@ namespace WFEsboco.Formulario
             }
             if (ListView is ListViewMensagem)
             {
-                Modelo = new business.classes.Mensagem(ListView.numero, true).recuperar(ListView.numero)[0];
+                Modelo = lista.First(m => m.Id == ListView.numero);
+                Modelo = Modelo.recuperar(Modelo.Id)[0];
 
                 FrmFinalizarCadastroMensagem frm = new FrmFinalizarCadastroMensagem(Modelo, false, true, false);
                 frm.MdiParent = this.MdiParent;
@@ -123,19 +111,8 @@ namespace WFEsboco.Formulario
 
             if (ListView is ListViewFonte)
             {
-                List<business.classes.Abstrato.Fonte> lista2 = new List<business.classes.Abstrato.Fonte>();
-                foreach (var item in lista)
-                    lista2.Add((business.classes.Abstrato.Fonte)item);
-                Modelo = lista2.First(i => i.Id == ListView.numero);
-
-                FrmFinalizarCadastroFonte frm = new FrmFinalizarCadastroFonte(Modelo, false, true, false);
-                frm.MdiParent = this.MdiParent;
-                frm.Show();
-            }
-
-            if (ListView is ListViewVersiculo)
-            {
-                Modelo = new business.classes.Fontes.Versiculo().recuperar(ListView.numero)[0];
+                Modelo = lista.First(m => m.Id == ListView.numero);
+                Modelo = Modelo.recuperar(Modelo.Id)[0];
 
                 FrmFinalizarCadastroFonte frm = new FrmFinalizarCadastroFonte(Modelo, false, true, false);
                 frm.MdiParent = this.MdiParent;
@@ -153,18 +130,19 @@ namespace WFEsboco.Formulario
             }
             if (ListView is ListViewMensagem)
             {
-                    Modelo = new business.classes.Mensagem(ListView.numero, true).recuperar(ListView.numero)[0];
-                    FrmFinalizarCadastroMensagem frm = new FrmFinalizarCadastroMensagem(Modelo, true, false, false);
+                Modelo = lista.First(m => m.Id == ListView.numero);
+                Modelo = Modelo.recuperar(Modelo.Id)[0];
+
+                FrmFinalizarCadastroMensagem frm = new FrmFinalizarCadastroMensagem(Modelo, true, false, false);
                 frm.MdiParent = this.MdiParent;
                 frm.Show();
             }
 
             if (ListView is ListViewFonte)
             {
-                List<business.classes.Abstrato.Fonte> lista2 = new List<business.classes.Abstrato.Fonte>();
-                foreach (var item in lista)
-                lista2.Add((business.classes.Abstrato.Fonte)item);
-                Modelo = lista2.First(i => i.Id == ListView.numero);
+                Modelo = lista.First(m => m.Id == ListView.numero);
+                Modelo = Modelo.recuperar(Modelo.Id)[0];
+
                 FrmFinalizarCadastroFonte frm = new FrmFinalizarCadastroFonte(Modelo, true, false, false);
                 frm.MdiParent = this.MdiParent;
                 frm.Show();
@@ -188,21 +166,7 @@ namespace WFEsboco.Formulario
             if (lista != null)
                 foreach (var v in lista)
                 {
-                    if (v is business.classes.Mensagem)
-                    {
-                        business.classes.Mensagem p;
-                        p = (business.classes.Mensagem)v;
-                        ListView.Items.Add(p.Id.ToString() + " - " + p.Tipo);
-                       
-                    }
-                    else
-                    if (v is Fonte)
-                    {
-                        Fonte m;
-                        m = (Fonte)v;
-                        ListView.Items.Add("Id da fonte " + m.Id.ToString() + " - Id da mensagem: " + m.MensagemId.ToString());
-                        
-                    }
+                    ListView.Items.Add(v.ToString());                    
                 }
         }
     }

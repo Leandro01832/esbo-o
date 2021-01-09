@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,11 +17,7 @@ namespace business.classes.Abstrato
         {
 
         }
-
-        public Fonte(int? id, bool recuperaLista) : base(id, recuperaLista)
-        {
-            recuperarFonte(id);          
-        }
+        
         
         public int MensagemId { get; set; }
         [ForeignKey("MensagemId")]
@@ -41,13 +38,12 @@ namespace business.classes.Abstrato
             return Delete_padrao;
         }
 
-        public abstract override List<modelocrud> recuperar(int? id);
-
-        public void recuperarFonte(int? id)
+        public override List<modelocrud> recuperar(int? id)
         {
-            Select_padrao = $"select * from Fonte ";
-            if (id != null) Select_padrao += $" where Id='{id}' ";
+            Select_padrao = $"select * from Fonte as F inner join Mensagem as M on F.MensagemId=M.Id ";
+            if (id != null) Select_padrao += $" where F.Id='{id}' ";
 
+            List<modelocrud> modelos = new List<modelocrud>();
             var conecta = bd.obterconexao();
             conecta.Open();
             SqlCommand comando = new SqlCommand(Select_padrao, conecta);
@@ -56,6 +52,7 @@ namespace business.classes.Abstrato
             if (reader.HasRows == false)
             {
                 bd.obterconexao().Close();
+                return modelos;
             }
 
             try
@@ -63,12 +60,19 @@ namespace business.classes.Abstrato
                 reader.Read();
                 this.Id = int.Parse(reader["Id"].ToString());
                 this.MensagemId = int.Parse(reader["MensagemId"].ToString());
+                this.Mensagem = new Mensagem();
+                this.Mensagem.Tipo = reader["Tipo"].ToString();
                 reader.Close();
+
+                modelos.Add(this);
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Aconteceu um erro: " + ex.Message);
+                return modelos;
             }
+            return modelos;
         }
 
         public static List<modelocrud> recuperarTodasFontes()
@@ -107,6 +111,15 @@ namespace business.classes.Abstrato
             
             return Insert_padrao;
         }
-        
+
+        public override string ToString()
+        {
+            var fontes = recuperarTodasFontes();
+            var fon = fontes.First(f => f.Id == base.Id);
+            fon = fon.recuperar(fon.Id)[0];
+            Fonte fonte = (Fonte)fon;
+            return "Id: " + base.Id.ToString() + " Tipo da msg: " + fonte.Mensagem.Tipo;
+        }
+
     }
 }

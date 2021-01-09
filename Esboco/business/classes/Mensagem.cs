@@ -19,19 +19,7 @@ namespace business.classes
         {
         }
 
-        public Mensagem(int? id, bool recuperaLista) : base(id, recuperaLista)
-        {
-            this.Fonte = new List<Fonte>();
-            if (recuperaLista)
-            {
-                var fontes = buscarFontes(id);
-                foreach (var item in fontes)
-                {
-                    this.Fonte.Add((Fonte)item);
-                }
-            }
-        }
-        public List<Fonte> Fonte { get; set; }
+        public List<Fonte> Fontes { get; set; }
         public string Tipo { get; set; }
 
         public override string alterar(int id)
@@ -81,6 +69,14 @@ namespace business.classes
                 {
                     MessageBox.Show("Aconteceu um erro: " + ex.Message);
                 }
+
+                var fontes = buscarFontes(id);
+                if(fontes != null)
+                foreach (var item in fontes)
+                {
+                    this.Fontes.Add((Fonte)item);
+                }
+
                 return modelos;
             }
             else
@@ -145,6 +141,11 @@ namespace business.classes
                 MessageBox.Show("Aconteceu um erro: " + ex.Message);
             }
             return modelos;
+        }
+
+        public override string ToString()
+        {
+            return "Id: " + base.Id.ToString() + " Tipo de Msm: " + Tipo;
         }
     }
 }
