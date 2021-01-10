@@ -25,3 +25,16 @@ C:\Users\leand\Documents\codigo-github\Esboco\Esboco\business\bin\Debug\EntityFr
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\business\bin\Debug\EntityFramework.xml
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\business\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\leand\Documents\codigo-github\Esboco\Esboco\business\obj\Debug\business.csproj.CopyComplete
+C:\Users\leand\Documents\codigo-github\Esboco\esbo-o\Esboco\business\bin\Debug\business.dll.config
+C:\Users\leand\Documents\codigo-github\Esboco\esbo-o\Esboco\business\bin\Debug\business.dll
+C:\Users\leand\Documents\codigo-github\Esboco\esbo-o\Esboco\business\bin\Debug\business.pdb
+C:\Users\leand\Documents\codigo-github\Esboco\esbo-o\Esboco\business\bin\Debug\EntityFramework.dll
+C:\Users\leand\Documents\codigo-github\Esboco\esbo-o\Esboco\business\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\leand\Documents\codigo-github\Esboco\esbo-o\Esboco\business\bin\Debug\EntityFramework.xml
+C:\Users\leand\Documents\codigo-github\Esboco\esbo-o\Esboco\business\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\leand\Documents\codigo-github\Esboco\esbo-o\Esboco\business\obj\Debug\business.Migrations.InitialCreate.resources
+C:\Users\leand\Documents\codigo-github\Esboco\esbo-o\Esboco\business\obj\Debug\business.csproj.GenerateResource.cache
+C:\Users\leand\Documents\codigo-github\Esboco\esbo-o\Esboco\business\obj\Debug\business.csproj.CoreCompileInputs.cache
+C:\Users\leand\Documents\codigo-github\Esboco\esbo-o\Esboco\business\obj\Debug\business.csproj.CopyComplete
+C:\Users\leand\Documents\codigo-github\Esboco\esbo-o\Esboco\business\obj\Debug\business.dll
+C:\Users\leand\Documents\codigo-github\Esboco\esbo-o\Esboco\business\obj\Debug\business.pdb

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTeste", "ConsoleTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFEsboco", "WFEsboco\WFEsboco.csproj", "{E603AF88-DDA1-4B7E-BE75-689DCA599F9C}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "InstaladorEsboco", "WFEsboco\Instalador\InstaladorEsboco\InstaladorEsboco.vdproj", "{61416DF7-4DF7-4F9C-B916-D22AB705238D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,8 @@ Global
 		{E603AF88-DDA1-4B7E-BE75-689DCA599F9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E603AF88-DDA1-4B7E-BE75-689DCA599F9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E603AF88-DDA1-4B7E-BE75-689DCA599F9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61416DF7-4DF7-4F9C-B916-D22AB705238D}.Debug|Any CPU.ActiveCfg = Debug
+		{61416DF7-4DF7-4F9C-B916-D22AB705238D}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
